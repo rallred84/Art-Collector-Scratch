@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#body {
+  display: flex;
+  flex: 1;
+}
+
+#search-results {
+  width: 200px;
+  border-right: 6px solid #444444;
+}
+
+#single-item-window {
+  background-color: #dddddd;
+}
+
+#searchbar {
+  border-top: 6px solid #444444;
+  border-bottom: 6px solid #444444;
+}

@@ -1,0 +1,26 @@
+#searchbar {
+  background-color: #cccccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 10px;
+}
+
+#query {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.form-label {
+  width: 160px;
+}
+
+#form-submit-button {
+  width: 80px;
+}
+
+#classification,
+#century {
+  display: flex;
+  flex-direction: column;
+}

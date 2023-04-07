@@ -1,0 +1,11 @@
+/* CSS Specific only to the header */
+
+#header {
+  background-color: #4682b4;
+  color: white;
+  text-align: center;
+}
+
+#logo {
+  font-family: cursive;
+}
