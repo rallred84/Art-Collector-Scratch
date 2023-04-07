@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './Header';
-import Searchbar from './Searchbar';
-import SearchResults from './SearchResults';
-import SingleItemView from './SingleItemView';
+import Header from '../Components/Header/Header';
+import Searchbar from '../Components/Searchbar/Searchbar';
+import SearchResults from '../Components/SearchResults/SearchResults';
+import SingleItemView from '../Components/SingleItemView/SingleItemView';
 
 function App() {
   return (
