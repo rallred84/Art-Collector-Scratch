@@ -1,32 +1,30 @@
-import { useEffect, useState } from 'react';
 import './Searchbar.css';
-import { fetchAllCenturies, fetchAllClassifications } from '../../api';
 
-const Searchbar = () => {
-  // States to Populate drop down menus
-  const [classifications, setClassifications] = useState([]);
-  const [centuries, setCenturies] = useState([]);
-  //States to change search values
-  const [query, setQuery] = useState('');
-  const [classification, setClassification] = useState('Any');
-  const [century, setCentury] = useState('Any');
-
-  useEffect(() => {
-    const classifications = fetchAllClassifications();
-    const centuries = fetchAllCenturies();
-
-    Promise.all([classifications, centuries]).then((values) => {
-      setQuery('');
-      setClassifications(values[0]);
-      setCenturies(values[1]);
-    });
-  }, []);
-
+const Searchbar = ({
+  classifications,
+  setClassifications,
+  centuries,
+  setCenturies,
+  query,
+  setQuery,
+  setClassification,
+  century,
+  setCentury,
+  setSearchResults,
+  classification,
+  fetchAllCenturies,
+  fetchAllClassifications,
+  fetchSearchResults,
+  setSearchResultList,
+}) => {
   return (
     <form
       id="searchbar"
       onSubmit={async (e) => {
         e.preventDefault();
+        Promise.resolve(
+          fetchSearchResults(century, classification, query)
+        ).then((values) => setSearchResultList(values));
         setQuery('');
         setClassification('Any');
         setCentury('Any');
@@ -56,7 +54,7 @@ const Searchbar = () => {
             setClassification(e.target.value);
           }}
         >
-          <option value="Any">Any</option>
+          <option value="any">Any</option>
           {classifications.map((classification) => {
             return (
               <option key={classification.id}>{classification.name}</option>
@@ -76,7 +74,7 @@ const Searchbar = () => {
             setCentury(e.target.value);
           }}
         >
-          <option value="Any">Any</option>
+          <option value="any">Any</option>
           {centuries.map((century) => {
             return <option key={century.id}>{century.name}</option>;
           })}
