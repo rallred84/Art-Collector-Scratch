@@ -24,3 +24,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.option-count {
+  color: #8d312e;
+}
+
+fieldset {
+  border: none;
+}
