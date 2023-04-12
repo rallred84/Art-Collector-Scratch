@@ -6,7 +6,14 @@ const SearchContent = ({ searchResultList }) => {
       {searchResultList.map((result) => {
         return (
           <div className="search-result-card" key={result.objectid}>
-            <img src={result.primaryimageurl} />
+            {
+              /* Using a ternary operator to pass an image into the card if the image link exists in the object, otherwise false */
+              result.primaryimageurl ? (
+                <img src={result.primaryimageurl} />
+              ) : (
+                false
+              )
+            }
             <p>{result.title}</p>
           </div>
         );
