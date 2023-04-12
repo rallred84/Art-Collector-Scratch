@@ -37,21 +37,16 @@ function App() {
     <div className="App">
       <Header />
       <Searchbar
-        classifications={classifications}
-        setClassifications={setClassifications}
-        centuries={centuries}
-        setCenturies={setCenturies}
         query={query}
         setQuery={setQuery}
+        classifications={classifications}
+        centuries={centuries}
+        classification={classification}
         setClassification={setClassification}
         century={century}
         setCentury={setCentury}
-        searchResultList={searchResultList}
-        setSearchResultList={setSearchResultList}
-        classification={classification}
-        fetchAllCenturies={fetchAllCenturies}
-        fetchAllClassifications={fetchAllClassifications}
         fetchSearchResults={fetchSearchResults}
+        setSearchResultList={setSearchResultList}
       />
       <div id="body">
         <SearchResults searchResultList={searchResultList} />

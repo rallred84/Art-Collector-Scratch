@@ -1,19 +1,14 @@
 import './Searchbar.css';
 
 const Searchbar = ({
-  classifications,
-  setClassifications,
-  centuries,
-  setCenturies,
   query,
   setQuery,
+  classifications,
+  centuries,
+  classification,
   setClassification,
   century,
   setCentury,
-  setSearchResults,
-  classification,
-  fetchAllCenturies,
-  fetchAllClassifications,
   fetchSearchResults,
   setSearchResultList,
 }) => {
@@ -26,8 +21,8 @@ const Searchbar = ({
           fetchSearchResults(century, classification, query)
         ).then((values) => setSearchResultList(values));
         setQuery('');
-        setClassification('Any');
-        setCentury('Any');
+        setClassification('any');
+        setCentury('any');
       }}
     >
       <fieldset id="query">

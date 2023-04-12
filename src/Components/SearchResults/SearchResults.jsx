@@ -1,4 +1,4 @@
-import SearchContent from './SearchContent';
+import SearchContent from './Components/SearchContent';
 
 const SearchResults = ({ searchResultList }) => {
   return (
