@@ -1,0 +1,9 @@
+.search-result-card img {
+  width: 170px;
+}
+
+.search-result-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}

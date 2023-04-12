@@ -1,11 +1,15 @@
-import { useState } from 'react';
-import SearchResults from '../SearchResults';
+import '../SearchResults.css';
 
 const SearchContent = ({ searchResultList }) => {
   return (
     <ul>
       {searchResultList.map((result) => {
-        return <li key={result.objectid}>{result.title}</li>;
+        return (
+          <div className="search-result-card" key={result.objectid}>
+            <img src={result.primaryimageurl} />
+            <p>{result.title}</p>
+          </div>
+        );
       })}
     </ul>
   );
