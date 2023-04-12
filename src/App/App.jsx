@@ -19,7 +19,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [classification, setClassification] = useState('any');
   const [century, setCentury] = useState('any');
-
+  //States to populate search results window
   const [searchResultList, setSearchResultList] = useState([]);
 
   useEffect(() => {
@@ -37,14 +37,17 @@ function App() {
     <div className="App">
       <Header />
       <Searchbar
-        query={query}
-        setQuery={setQuery}
+        //Drop down menu values
         classifications={classifications}
         centuries={centuries}
+        //Search values and setting functions
+        query={query}
+        setQuery={setQuery}
         classification={classification}
         setClassification={setClassification}
         century={century}
         setCentury={setCentury}
+        //Search result api request and state setting
         fetchSearchResults={fetchSearchResults}
         setSearchResultList={setSearchResultList}
       />

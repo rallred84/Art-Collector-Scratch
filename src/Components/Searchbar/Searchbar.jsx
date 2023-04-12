@@ -1,10 +1,10 @@
 import './Searchbar.css';
 
 const Searchbar = ({
-  query,
-  setQuery,
   classifications,
   centuries,
+  query,
+  setQuery,
   classification,
   setClassification,
   century,
