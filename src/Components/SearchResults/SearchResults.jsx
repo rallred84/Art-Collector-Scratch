@@ -1,6 +1,6 @@
 import SearchContent from './Components/SearchContent';
 
-const SearchResults = ({ searchResultList }) => {
+const SearchResults = ({ searchResultList, setSingleItemDetails }) => {
   return (
     <div id="search-results">
       <div id="search-toggle">
@@ -8,7 +8,10 @@ const SearchResults = ({ searchResultList }) => {
         <button>Next</button>
       </div>
       <div id="search-content">
-        <SearchContent searchResultList={searchResultList} />
+        <SearchContent
+          searchResultList={searchResultList}
+          setSingleItemDetails={setSingleItemDetails}
+        />
       </div>
     </div>
   );

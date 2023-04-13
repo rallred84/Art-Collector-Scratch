@@ -1,9 +1,24 @@
 .search-result-card img {
-  width: 170px;
+  width: 250px;
+  align-self: center;
+  margin-bottom: 7px;
 }
 
 .search-result-card {
+  background-color: white;
   margin: 10px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-result-card:hover,
+button:hover {
+  cursor: pointer;
+}
+
+#search-results {
+  background-color: #eeeeee;
 }

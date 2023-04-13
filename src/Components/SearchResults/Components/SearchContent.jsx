@@ -1,11 +1,22 @@
+import { fetchSingleItem } from '../../../api';
 import '../SearchResults.css';
 
-const SearchContent = ({ searchResultList }) => {
+const SearchContent = ({ searchResultList, setSingleItemDetails }) => {
   return (
-    <ul>
+    <div>
       {searchResultList.map((result) => {
         return (
-          <div className="search-result-card" key={result.objectid}>
+          <div
+            onClick={() => {
+              //Want to call an api fetch request for clicked object and set the single item view window with it
+
+              Promise.resolve(fetchSingleItem(result.id)).then((value) =>
+                setSingleItemDetails(value)
+              );
+            }}
+            className="search-result-card"
+            key={result.objectid}
+          >
             {
               /* Using a ternary operator to pass an image into the card if the image link exists in the object, otherwise false */
               result.primaryimageurl ? (
@@ -18,7 +29,7 @@ const SearchContent = ({ searchResultList }) => {
           </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 

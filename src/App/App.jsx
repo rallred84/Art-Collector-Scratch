@@ -21,6 +21,8 @@ function App() {
   const [century, setCentury] = useState('any');
   //States to populate search results window
   const [searchResultList, setSearchResultList] = useState([]);
+  // State to populate single item view window
+  const [singleItemDetails, setSingleItemDetails] = useState({ name: 'test' });
 
   useEffect(() => {
     const classifications = fetchAllClassifications();
@@ -54,8 +56,11 @@ function App() {
         setSearchResultList={setSearchResultList}
       />
       <div id="body">
-        <SearchResults searchResultList={searchResultList} />
-        <SingleItemView />
+        <SearchResults
+          searchResultList={searchResultList}
+          setSingleItemDetails={setSingleItemDetails}
+        />
+        <SingleItemView singleItemDetails={singleItemDetails} />
       </div>
     </div>
   );

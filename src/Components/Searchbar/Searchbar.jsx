@@ -12,6 +12,9 @@ const Searchbar = ({
   fetchSearchResults,
   setSearchResultList,
 }) => {
+  let classificationNames = classifications.map((value) => value.name);
+  classificationNames = classificationNames.sort();
+  // console.log(classificationNames);
   return (
     <form
       id="searchbar"

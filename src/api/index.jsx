@@ -32,3 +32,13 @@ export async function fetchSearchResults(century, classification, queryString) {
     console.log(error);
   }
 }
+
+export async function fetchSingleItem(id) {
+  try {
+    const response = await fetch(`${apiUrl}/object?${apiKey}&id=${id}`);
+    const data = await response.json();
+    return data.records[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
