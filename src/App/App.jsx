@@ -22,7 +22,7 @@ function App() {
   //States to populate search results window
   const [searchResultList, setSearchResultList] = useState([]);
   // State to populate single item view window
-  const [singleItemDetails, setSingleItemDetails] = useState({ name: 'test' });
+  const [singleItemDetails, setSingleItemDetails] = useState({});
 
   useEffect(() => {
     const classifications = fetchAllClassifications();
@@ -38,7 +38,7 @@ function App() {
   //test
 
   return (
-    <div className="App">
+    <div className="app">
       <Header />
       <Searchbar
         //Drop down menu values
@@ -55,7 +55,7 @@ function App() {
         fetchSearchResults={fetchSearchResults}
         setSearchResultList={setSearchResultList}
       />
-      <div id="body">
+      <div id="main">
         <SearchResults
           searchResultList={searchResultList}
           setSingleItemDetails={setSingleItemDetails}

@@ -22,3 +22,8 @@ button:hover {
 #search-results {
   background-color: #eeeeee;
 }
+
+#search-content {
+  height: 100%;
+  overflow: auto;
+}

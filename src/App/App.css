@@ -3,25 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.App {
+.app {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-#body {
+#main {
+  height: 100%;
   display: flex;
-  flex: 1;
+  flex-grow: 1;
 }
 
 #search-results {
+  height: 100%;
   width: 300px;
   border-right: 6px solid #444444;
-}
-
-#single-item-window {
-  background-color: #dddddd;
 }
 
 #searchbar {

@@ -37,6 +37,7 @@ export async function fetchSingleItem(id) {
   try {
     const response = await fetch(`${apiUrl}/object?${apiKey}&id=${id}`);
     const data = await response.json();
+    console.log(data.records[0]);
     return data.records[0];
   } catch (error) {
     console.log(error);
