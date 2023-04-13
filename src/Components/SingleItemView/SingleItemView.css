@@ -15,3 +15,12 @@ td {
   width: 100px;
   padding: 5px;
 }
+
+.single-item-img img {
+  max-width: 400px;
+}
+
+.single-item-details {
+  display: flex;
+  justify-content: space-between;
+}

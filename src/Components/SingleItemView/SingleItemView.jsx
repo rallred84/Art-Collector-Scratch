@@ -38,7 +38,9 @@ const SingleItemView = ({ singleItemDetails }) => {
               </tbody>
             </table>
           </div>
-          <div className="single-item-img"></div>
+          <div className="single-item-img">
+            <img src={singleItemDetails.primaryimageurl} />
+          </div>
         </div>
       </div>
     );
