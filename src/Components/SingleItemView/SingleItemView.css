@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 5px;
 }
 
 .single-item-header {
-  margin: 5px;
-  padding: 10px;
   color: white;
   background-color: #4682b4;
+  padding: 10px;
 }
 
 td {
@@ -18,9 +18,19 @@ td {
 
 .single-item-img img {
   max-width: 400px;
+  padding: 5px;
 }
 
 .single-item-details {
   display: flex;
   justify-content: space-between;
+}
+
+.searchable {
+  color: blue;
+  text-decoration: underline;
+}
+
+.searchable:hover {
+  cursor: pointer;
 }

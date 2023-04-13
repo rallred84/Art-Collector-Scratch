@@ -60,7 +60,10 @@ function App() {
           searchResultList={searchResultList}
           setSingleItemDetails={setSingleItemDetails}
         />
-        <SingleItemView singleItemDetails={singleItemDetails} />
+        <SingleItemView
+          setSearchResultList={setSearchResultList}
+          singleItemDetails={singleItemDetails}
+        />
       </div>
     </div>
   );

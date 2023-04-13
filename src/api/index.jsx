@@ -33,6 +33,19 @@ export async function fetchSearchResults(century, classification, queryString) {
   }
 }
 
+export async function fetchSearchResultsfromKeyword(fact) {
+  try {
+    console.log(fact[0]);
+    const response = await fetch(
+      `${apiUrl}/object?${apiKey}&${fact[0].toLowerCase()}=${fact[1]}`
+    );
+    const data = await response.json();
+    return data.records;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function fetchSingleItem(id) {
   try {
     const response = await fetch(`${apiUrl}/object?${apiKey}&id=${id}`);

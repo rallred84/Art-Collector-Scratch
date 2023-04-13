@@ -1,18 +1,19 @@
 import InfoRow from './InfoRow';
 import './SingleItemView.css';
 
-const SingleItemView = ({ singleItemDetails }) => {
+const SingleItemView = ({ singleItemDetails, setSearchResultList }) => {
   const facts = [
-    ['Culture', singleItemDetails.culture],
-    ['Medium', singleItemDetails.medium],
-    ['Description', singleItemDetails.description],
-    ['Style', singleItemDetails.style],
-    ['Technique', singleItemDetails.technique],
-    ['Dimensions', singleItemDetails.dimensions],
-    ['Department', singleItemDetails.department],
-    ['Division', singleItemDetails.division],
-    ['Contact', singleItemDetails.contact],
-    ['Credit Line', singleItemDetails.creditline],
+    ['Culture', singleItemDetails.culture, true],
+    ['Medium', singleItemDetails.medium, true],
+    false,
+    ['Description', singleItemDetails.description, false],
+    ['Style', singleItemDetails.style, false],
+    ['Technique', singleItemDetails.technique, true],
+    ['Dimensions', singleItemDetails.dimensions, false],
+    ['Department', singleItemDetails.department, false],
+    ['Division', singleItemDetails.division, false],
+    ['Contact', singleItemDetails.contact, false],
+    ['Credit Line', singleItemDetails.creditline, false],
   ];
 
   //The different facts look like this:  title, dated, images, primaryimageurl, description, culture, style,technique, medium, dimensions, people, department, division, contact, creditline
@@ -33,7 +34,13 @@ const SingleItemView = ({ singleItemDetails }) => {
             <table>
               <tbody>
                 {facts.map((fact, idx) => {
-                  return <InfoRow key={idx} fact={fact} />;
+                  return (
+                    <InfoRow
+                      key={idx}
+                      fact={fact}
+                      setSearchResultList={setSearchResultList}
+                    />
+                  );
                 })}
               </tbody>
             </table>
