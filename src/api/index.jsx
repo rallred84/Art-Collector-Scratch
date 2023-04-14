@@ -35,9 +35,13 @@ export async function fetchSearchResults(century, classification, queryString) {
 
 export async function fetchSearchResultsfromKeyword(fact) {
   try {
-    console.log(fact[0]);
+    const keyName = fact.name.toLowerCase();
+    const keyValue = fact.value;
+
     const response = await fetch(
-      `${apiUrl}/object?${apiKey}&${fact[0].toLowerCase()}=${fact[1]}`
+      `${apiUrl}/object?${apiKey}&${keyName}=${encodeURI(
+        keyValue.split('-').join('|')
+      )}`
     );
     const data = await response.json();
     return data.records;
@@ -50,7 +54,6 @@ export async function fetchSingleItem(id) {
   try {
     const response = await fetch(`${apiUrl}/object?${apiKey}&id=${id}`);
     const data = await response.json();
-    console.log(data.records[0]);
     return data.records[0];
   } catch (error) {
     console.log(error);

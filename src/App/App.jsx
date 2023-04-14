@@ -35,8 +35,6 @@ function App() {
     });
   }, []);
 
-  //test
-
   return (
     <div className="app">
       <Header />

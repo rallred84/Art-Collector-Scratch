@@ -1,19 +1,36 @@
 import InfoRow from './InfoRow';
+import People from './People';
 import './SingleItemView.css';
 
 const SingleItemView = ({ singleItemDetails, setSearchResultList }) => {
   const facts = [
-    ['Culture', singleItemDetails.culture, true],
-    ['Medium', singleItemDetails.medium, true],
+    { name: 'Culture', value: singleItemDetails.culture, searchable: true },
+    { name: 'Medium', value: singleItemDetails.medium, searchable: true },
     false,
-    ['Description', singleItemDetails.description, false],
-    ['Style', singleItemDetails.style, false],
-    ['Technique', singleItemDetails.technique, true],
-    ['Dimensions', singleItemDetails.dimensions, false],
-    ['Department', singleItemDetails.department, false],
-    ['Division', singleItemDetails.division, false],
-    ['Contact', singleItemDetails.contact, false],
-    ['Credit Line', singleItemDetails.creditline, false],
+    {
+      name: 'Description',
+      value: singleItemDetails.description,
+      searchable: false,
+    },
+    { name: 'Style', value: singleItemDetails.style, searchable: false },
+    { name: 'Technique', value: singleItemDetails.technique, searchable: true },
+    {
+      name: 'Dimensions',
+      value: singleItemDetails.dimensions,
+      searchable: false,
+    },
+    {
+      name: 'Department',
+      value: singleItemDetails.department,
+      searchable: false,
+    },
+    { name: 'Division', value: singleItemDetails.division, searchable: false },
+    { name: 'Contact', value: singleItemDetails.contact, searchable: false },
+    {
+      name: 'Credit Line',
+      value: singleItemDetails.creditline,
+      searchable: false,
+    },
   ];
 
   //The different facts look like this:  title, dated, images, primaryimageurl, description, culture, style,technique, medium, dimensions, people, department, division, contact, creditline
@@ -33,6 +50,10 @@ const SingleItemView = ({ singleItemDetails, setSearchResultList }) => {
           <div className="single-item-stats">
             <table>
               <tbody>
+                <People
+                  singleItemDetails={singleItemDetails}
+                  setSearchResultList={setSearchResultList}
+                />
                 {facts.map((fact, idx) => {
                   return (
                     <InfoRow

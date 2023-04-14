@@ -1,4 +1,6 @@
 import { fetchSearchResultsfromKeyword } from '../../api';
+import NotSearchable from './NotSearchable';
+import Searchable from './Searchable';
 import SingleItemView from './SingleItemView';
 
 //fact array is as follows:
@@ -6,25 +8,14 @@ import SingleItemView from './SingleItemView';
 //Index 1: Row Value
 //Index 2: (optional) Row Searchable
 const InfoRow = ({ fact, setSearchResultList }) => {
-  if (fact[1]) {
+  if (fact.value) {
     return (
       <tr>
-        <td>{fact[0]}</td>
-        {fact[2] ? (
-          <td>
-            <span
-              className="searchable"
-              onClick={() => {
-                Promise.resolve(fetchSearchResultsfromKeyword(fact)).then(
-                  (values) => setSearchResultList(values)
-                );
-              }}
-            >
-              {fact[1]}
-            </span>
-          </td>
+        <td>{fact.name}</td>
+        {fact.searchable ? (
+          <Searchable fact={fact} setSearchResultList={setSearchResultList} />
         ) : (
-          <td>{fact[1]}</td>
+          <NotSearchable fact={fact} />
         )}
       </tr>
     );
