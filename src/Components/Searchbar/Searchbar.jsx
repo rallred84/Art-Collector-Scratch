@@ -1,6 +1,7 @@
 import './Searchbar.css';
 
 const Searchbar = ({
+  setIsLoading,
   classifications,
   centuries,
   query,
@@ -20,9 +21,15 @@ const Searchbar = ({
       id="searchbar"
       onSubmit={async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         Promise.resolve(
           fetchSearchResults(century, classification, query)
-        ).then((values) => setSearchResultList(values));
+        ).then((values) => {
+          setSearchResultList(values);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
+        });
         setQuery('');
         setClassification('any');
         setCentury('any');

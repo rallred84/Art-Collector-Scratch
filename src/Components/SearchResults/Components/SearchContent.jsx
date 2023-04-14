@@ -1,7 +1,11 @@
 import { fetchSingleItem } from '../../../api';
 import '../SearchResults.css';
 
-const SearchContent = ({ searchResultList, setSingleItemDetails }) => {
+const SearchContent = ({
+  setIsLoading,
+  searchResultList,
+  setSingleItemDetails,
+}) => {
   return (
     <div>
       {searchResultList.map((result) => {
@@ -9,10 +13,14 @@ const SearchContent = ({ searchResultList, setSingleItemDetails }) => {
           <div
             onClick={() => {
               //Want to call an api fetch request for clicked object and set the single item view window with it
+              setIsLoading(true);
 
-              Promise.resolve(fetchSingleItem(result.id)).then((value) =>
-                setSingleItemDetails(value)
-              );
+              Promise.resolve(fetchSingleItem(result.id)).then((value) => {
+                setSingleItemDetails(value);
+                setTimeout(() => {
+                  setIsLoading(false);
+                }, 500);
+              });
             }}
             className="search-result-card"
             key={result.objectid}

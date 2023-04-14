@@ -12,6 +12,9 @@ import {
 } from '../api';
 
 function App() {
+  //Is Loading State
+  const [isLoading, setIsLoading] = useState(false);
+
   // States to Populate drop down menus
   const [classifications, setClassifications] = useState([]);
   const [centuries, setCenturies] = useState([]);
@@ -27,7 +30,7 @@ function App() {
   useEffect(() => {
     const classifications = fetchAllClassifications();
     const centuries = fetchAllCenturies();
-
+    // setIsLoading(true);
     Promise.all([classifications, centuries]).then((values) => {
       setQuery('');
       setClassifications(values[0]);
@@ -35,10 +38,23 @@ function App() {
     });
   }, []);
 
+  const IsLoading = () => {
+    if (isLoading) {
+      return (
+        <div className="loading">
+          <span>LOADING</span>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="app">
+      <IsLoading />
       <Header />
       <Searchbar
+        //Is Loading
+        setIsLoading={setIsLoading}
         //Drop down menu values
         classifications={classifications}
         centuries={centuries}
@@ -55,10 +71,12 @@ function App() {
       />
       <div id="main">
         <SearchResults
+          setIsLoading={setIsLoading}
           searchResultList={searchResultList}
           setSingleItemDetails={setSingleItemDetails}
         />
         <SingleItemView
+          setIsLoading={setIsLoading}
           setSearchResultList={setSearchResultList}
           singleItemDetails={singleItemDetails}
         />

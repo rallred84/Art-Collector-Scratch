@@ -1,13 +1,19 @@
 import { fetchSearchResultsfromKeyword } from '../../api';
 
-const Searchable = ({ fact, setSearchResultList }) => {
+const Searchable = ({ fact, setSearchResultList, setIsLoading }) => {
   return (
     <td>
       <span
         className="searchable"
         onClick={() => {
-          Promise.resolve(fetchSearchResultsfromKeyword(fact)).then((values) =>
-            setSearchResultList(values)
+          setIsLoading(true);
+          Promise.resolve(fetchSearchResultsfromKeyword(fact)).then(
+            (values) => {
+              setSearchResultList(values);
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 500);
+            }
           );
         }}
       >

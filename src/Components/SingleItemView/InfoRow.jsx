@@ -7,13 +7,17 @@ import SingleItemView from './SingleItemView';
 //Index 0: Row Name
 //Index 1: Row Value
 //Index 2: (optional) Row Searchable
-const InfoRow = ({ fact, setSearchResultList }) => {
+const InfoRow = ({ fact, setSearchResultList, setIsLoading }) => {
   if (fact.value) {
     return (
       <tr>
         <td>{fact.name}</td>
         {fact.searchable ? (
-          <Searchable fact={fact} setSearchResultList={setSearchResultList} />
+          <Searchable
+            fact={fact}
+            setSearchResultList={setSearchResultList}
+            setIsLoading={setIsLoading}
+          />
         ) : (
           <NotSearchable fact={fact} />
         )}

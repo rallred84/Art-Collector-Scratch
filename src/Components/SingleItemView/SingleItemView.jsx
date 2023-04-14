@@ -2,9 +2,14 @@ import InfoRow from './InfoRow';
 import People from './People';
 import './SingleItemView.css';
 
-const SingleItemView = ({ singleItemDetails, setSearchResultList }) => {
+const SingleItemView = ({
+  singleItemDetails,
+  setSearchResultList,
+  setIsLoading,
+}) => {
   const facts = [
     { name: 'Culture', value: singleItemDetails.culture, searchable: true },
+    { name: 'Century', value: singleItemDetails.century, searchable: true },
     { name: 'Medium', value: singleItemDetails.medium, searchable: true },
     false,
     {
@@ -59,6 +64,7 @@ const SingleItemView = ({ singleItemDetails, setSearchResultList }) => {
                     <InfoRow
                       key={idx}
                       fact={fact}
+                      setIsLoading={setIsLoading}
                       setSearchResultList={setSearchResultList}
                     />
                   );
