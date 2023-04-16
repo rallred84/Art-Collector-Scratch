@@ -35,13 +35,11 @@ export async function fetchSearchResults(century, classification, queryString) {
 
 export async function fetchSearchResultsfromKeyword(fact) {
   try {
-    const keyName = fact.name.toLowerCase();
-    const keyValue = fact.value;
+    const keyName = fact.searchId.toLowerCase();
+    const keyValue = fact.searchValue;
 
     const response = await fetch(
-      `${apiUrl}/object?${apiKey}&${keyName}=${encodeURI(
-        keyValue.split('-').join('|')
-      )}`
+      `${apiUrl}/object?${apiKey}&${keyName}=${keyValue}`
     );
     const data = await response.json();
     return data.records;

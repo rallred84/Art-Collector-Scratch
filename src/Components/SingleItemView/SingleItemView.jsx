@@ -8,17 +8,43 @@ const SingleItemView = ({
   setIsLoading,
 }) => {
   const facts = [
-    { name: 'Culture', value: singleItemDetails.culture, searchable: true },
-    { name: 'Century', value: singleItemDetails.century, searchable: true },
-    { name: 'Medium', value: singleItemDetails.medium, searchable: true },
-    false,
+    {
+      name: 'Culture',
+      value: singleItemDetails.culture,
+      searchId: 'culture',
+      searchValue: singleItemDetails.culture,
+      searchable: true,
+    },
+    {
+      name: 'Century',
+      value: singleItemDetails.century,
+      searchId: 'century',
+      searchValue: singleItemDetails.century,
+      searchable: true,
+    },
+    //Medium search doesnt work correctly, so changed it to be not searchable
+    {
+      name: 'Medium',
+      value: singleItemDetails.medium,
+      searchable: false,
+    },
     {
       name: 'Description',
       value: singleItemDetails.description,
       searchable: false,
     },
-    { name: 'Style', value: singleItemDetails.style, searchable: false },
-    { name: 'Technique', value: singleItemDetails.technique, searchable: true },
+    {
+      name: 'Style',
+      value: singleItemDetails.style,
+      searchable: false,
+    },
+    {
+      name: 'Technique',
+      value: singleItemDetails.technique,
+      searchId: 'technique',
+      searchValue: singleItemDetails.technique,
+      searchable: true,
+    },
     {
       name: 'Dimensions',
       value: singleItemDetails.dimensions,
@@ -29,8 +55,16 @@ const SingleItemView = ({
       value: singleItemDetails.department,
       searchable: false,
     },
-    { name: 'Division', value: singleItemDetails.division, searchable: false },
-    { name: 'Contact', value: singleItemDetails.contact, searchable: false },
+    {
+      name: 'Division',
+      value: singleItemDetails.division,
+      searchable: false,
+    },
+    {
+      name: 'Contact',
+      value: singleItemDetails.contact,
+      searchable: false,
+    },
     {
       name: 'Credit Line',
       value: singleItemDetails.creditline,
@@ -58,6 +92,7 @@ const SingleItemView = ({
                 <People
                   singleItemDetails={singleItemDetails}
                   setSearchResultList={setSearchResultList}
+                  setIsLoading={setIsLoading}
                 />
                 {facts.map((fact, idx) => {
                   return (
