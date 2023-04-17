@@ -24,6 +24,9 @@ function App() {
   const [century, setCentury] = useState('any');
   //States to populate search results window
   const [searchResultList, setSearchResultList] = useState([]);
+  // Set Info state to run next and previous buttons
+  const [searchResultInfo, setSearchResultInfo] = useState([]);
+
   // State to populate single item view window
   const [singleItemDetails, setSingleItemDetails] = useState({});
 
@@ -68,11 +71,15 @@ function App() {
         //Search result api request and state setting
         fetchSearchResults={fetchSearchResults}
         setSearchResultList={setSearchResultList}
+        setSearchResultInfo={setSearchResultInfo}
       />
       <div id="main">
         <SearchResults
           setIsLoading={setIsLoading}
+          setSearchResultList={setSearchResultList}
           searchResultList={searchResultList}
+          searchResultInfo={searchResultInfo}
+          setSearchResultInfo={setSearchResultInfo}
           setSingleItemDetails={setSingleItemDetails}
         />
         <SingleItemView

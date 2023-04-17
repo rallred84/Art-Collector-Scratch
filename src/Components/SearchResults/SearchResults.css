@@ -39,4 +39,25 @@ button:hover {
   margin-right: 10px;
   padding: 7px;
   margin-bottom: 5px;
+  border-radius: 7px;
+}
+
+.inactive-button,
+.inactive-button:hover {
+  background-color: rgb(203, 198, 198);
+  color: gray;
+  cursor: none;
+  border: 1px solid gray;
+}
+
+.active-button,
+.active-button:hover {
+  background-color: #4682b4;
+  color: white;
+  border: 1px solid black;
+}
+
+.active-button:hover {
+  background-color: #3a6b94;
+  font-weight: bold;
 }

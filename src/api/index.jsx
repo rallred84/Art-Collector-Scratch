@@ -27,7 +27,7 @@ export async function fetchSearchResults(century, classification, queryString) {
       `${apiUrl}/object?${apiKey}&century=${century}&classification=${classification}&keyword=${queryString}`
     );
     const data = await response.json();
-    return data.records;
+    return data;
   } catch (error) {
     console.log(error);
   }
@@ -53,6 +53,16 @@ export async function fetchSingleItem(id) {
     const response = await fetch(`${apiUrl}/object?${apiKey}&id=${id}`);
     const data = await response.json();
     return data.records[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function fetchWithURL(url) {
+  try {
+    const response = await fetch(`${url}`);
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }

@@ -12,10 +12,10 @@ const Searchbar = ({
   setCentury,
   fetchSearchResults,
   setSearchResultList,
+  setSearchResultInfo,
 }) => {
   let classificationNames = classifications.map((value) => value.name);
   classificationNames = classificationNames.sort();
-  // console.log(classificationNames);
   return (
     <form
       id="searchbar"
@@ -25,7 +25,8 @@ const Searchbar = ({
         Promise.resolve(
           fetchSearchResults(century, classification, query)
         ).then((values) => {
-          setSearchResultList(values);
+          setSearchResultList(values.records);
+          setSearchResultInfo(values.info);
           setTimeout(() => {
             setIsLoading(false);
           }, 500);
