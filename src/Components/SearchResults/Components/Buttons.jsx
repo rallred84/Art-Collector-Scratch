@@ -3,6 +3,7 @@ import { fetchWithURL } from '../../../api';
 const Buttons = ({
   className,
   buttonName,
+  setIsLoading,
   url,
   setSearchResultList,
   setSearchResultInfo,
@@ -12,9 +13,11 @@ const Buttons = ({
       <button
         className={className}
         onClick={() => {
+          setIsLoading(true);
           Promise.resolve(fetchWithURL(url)).then((values) => {
             setSearchResultList(values.records);
             setSearchResultInfo(values.info);
+            setIsLoading(false);
           });
         }}
       >

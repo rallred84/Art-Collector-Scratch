@@ -18,6 +18,7 @@ const SearchResults = ({
             className="active-button"
             buttonName={'Previous'}
             url={searchResultInfo.prev}
+            setIsLoading={setIsLoading}
             setSearchResultList={setSearchResultList}
             setSearchResultInfo={setSearchResultInfo}
           />
@@ -28,6 +29,7 @@ const SearchResults = ({
           <Buttons
             className="active-button"
             buttonName={'Next'}
+            setIsLoading={setIsLoading}
             url={searchResultInfo.next}
             setSearchResultList={setSearchResultList}
             setSearchResultInfo={setSearchResultInfo}

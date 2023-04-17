@@ -5,6 +5,7 @@ import './SingleItemView.css';
 const SingleItemView = ({
   singleItemDetails,
   setSearchResultList,
+  setSearchResultInfo,
   setIsLoading,
 }) => {
   const facts = [
@@ -93,6 +94,7 @@ const SingleItemView = ({
                   singleItemDetails={singleItemDetails}
                   setSearchResultList={setSearchResultList}
                   setIsLoading={setIsLoading}
+                  setSearchResultInfo={setSearchResultInfo}
                 />
                 {facts.map((fact, idx) => {
                   return (
@@ -100,6 +102,7 @@ const SingleItemView = ({
                       key={idx}
                       fact={fact}
                       setIsLoading={setIsLoading}
+                      setSearchResultInfo={setSearchResultInfo}
                       setSearchResultList={setSearchResultList}
                     />
                   );

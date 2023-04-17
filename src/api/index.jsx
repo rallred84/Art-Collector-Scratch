@@ -42,7 +42,7 @@ export async function fetchSearchResultsfromKeyword(fact) {
       `${apiUrl}/object?${apiKey}&${keyName}=${keyValue}`
     );
     const data = await response.json();
-    return data.records;
+    return data;
   } catch (error) {
     console.log(error);
   }

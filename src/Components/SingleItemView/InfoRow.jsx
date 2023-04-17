@@ -7,7 +7,12 @@ import SingleItemView from './SingleItemView';
 //Index 0: Row Name
 //Index 1: Row Value
 //Index 2: (optional) Row Searchable
-const InfoRow = ({ fact, setSearchResultList, setIsLoading }) => {
+const InfoRow = ({
+  fact,
+  setSearchResultList,
+  setSearchResultInfo,
+  setIsLoading,
+}) => {
   if (fact.value) {
     return (
       <tr>
@@ -16,6 +21,7 @@ const InfoRow = ({ fact, setSearchResultList, setIsLoading }) => {
           <Searchable
             fact={fact}
             setSearchResultList={setSearchResultList}
+            setSearchResultInfo={setSearchResultInfo}
             setIsLoading={setIsLoading}
           />
         ) : (

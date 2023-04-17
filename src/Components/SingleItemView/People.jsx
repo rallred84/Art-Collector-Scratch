@@ -1,6 +1,11 @@
 import Searchable from './Searchable';
 
-const People = ({ singleItemDetails, setSearchResultList, setIsLoading }) => {
+const People = ({
+  singleItemDetails,
+  setSearchResultInfo,
+  setSearchResultList,
+  setIsLoading,
+}) => {
   if (singleItemDetails.people) {
     const facts = [];
     const personArray = singleItemDetails.people;
@@ -23,6 +28,7 @@ const People = ({ singleItemDetails, setSearchResultList, setIsLoading }) => {
           <Searchable
             fact={fact}
             setIsLoading={setIsLoading}
+            setSearchResultInfo={setSearchResultInfo}
             setSearchResultList={setSearchResultList}
           />
         </tr>

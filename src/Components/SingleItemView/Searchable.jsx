@@ -1,6 +1,11 @@
 import { fetchSearchResultsfromKeyword } from '../../api';
 
-const Searchable = ({ fact, setSearchResultList, setIsLoading }) => {
+const Searchable = ({
+  fact,
+  setSearchResultList,
+  setSearchResultInfo,
+  setIsLoading,
+}) => {
   return (
     <td>
       <span
@@ -9,7 +14,8 @@ const Searchable = ({ fact, setSearchResultList, setIsLoading }) => {
           setIsLoading(true);
           Promise.resolve(fetchSearchResultsfromKeyword(fact)).then(
             (values) => {
-              setSearchResultList(values);
+              setSearchResultList(values.records);
+              setSearchResultInfo(values.info);
               setTimeout(() => {
                 setIsLoading(false);
               }, 500);

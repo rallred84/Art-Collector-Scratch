@@ -86,6 +86,7 @@ function App() {
           setIsLoading={setIsLoading}
           setSearchResultList={setSearchResultList}
           singleItemDetails={singleItemDetails}
+          setSearchResultInfo={setSearchResultInfo}
         />
       </div>
     </div>
